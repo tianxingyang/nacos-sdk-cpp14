@@ -17,7 +17,6 @@ namespace nacos
 {
 class nacos_cli_API UuidUtils
 {
- private:
  public:
   static NacosString generateUuid();
 };
