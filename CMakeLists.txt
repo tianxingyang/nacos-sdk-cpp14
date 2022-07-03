@@ -17,3 +17,5 @@ add_library(nacos-cli SHARED ${SRCS_DIRS})
 add_library(nacos-cli-static STATIC ${SRCS_DIRS})
 
 target_compile_definitions(nacos-cli PRIVATE SDK_SHARED)
+enable_testing()
+add_subdirectory(tests)
