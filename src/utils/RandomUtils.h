@@ -27,10 +27,6 @@ class RandomUtils
   static thread_local bool initedForThisThread;
 
  public:
-  static nacos_cli_API void Init();
-
-  static nacos_cli_API void DeInit();
-
   static nacos_cli_API size_t getRandomBuffer(void* dest, size_t size);
 
   /**

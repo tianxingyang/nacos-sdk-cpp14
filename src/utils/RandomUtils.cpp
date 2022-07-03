@@ -11,19 +11,10 @@
 namespace nacos
 {
 thread_local bool RandomUtils::initedForThisThread(false);
-thread_local std::uniform_int_distribution<int> RandomUtils::_int_dis;
-std::mt19937 RandomUtils::_mt;
-
-void RandomUtils::Init()
-{
-  std::random_device rd;
-  _mt = std::mt19937(rd());
-  _int_dis = std::uniform_int_distribution<int>(0, 1 << 8);
-}
-
-void RandomUtils::DeInit()
-{
-}
+thread_local std::uniform_int_distribution<int> RandomUtils::_int_dis{
+  std::uniform_int_distribution<int>(0, 1 << 8)
+};
+std::mt19937 RandomUtils::_mt{ std::mt19937(std::random_device{}()) };
 
 size_t RandomUtils::getRandomBuffer(void* dest, size_t size)
 {
